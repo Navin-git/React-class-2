@@ -1,4 +1,8 @@
-const Card = ({ pic, title, dec }) => {
+const Card = ({
+  pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDM43pAzXkKe97pmZXJ_HEX68fQMQc0J_hRmmzxOmWDz_BPjv-rR5rDYXPWqfKdwNHKs&usqp=CAU",
+  title = "",
+  dec = "",
+}) => {
   return (
     <div className="card">
       <img src={pic} alt="" className="h-[250px] w-full object-cover" />

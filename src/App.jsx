@@ -1,19 +1,22 @@
+import { useState } from "react";
 import "./App.css";
-import Card from "./components/common/Card";
+import ProductList from "./components/product/ProductList";
+import Footer from "./components/static/Footer";
+import Navbar from "./components/static/Navbar";
+import Sidebar from "./components/static/Sidebar";
+
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="grid grid-cols-3 gap-2 p-4">
-      <Card
-        title="Nabin"
-        dec="dsaf dsafsdaf dsf dsafdsaa dsfadsfsa"
-        pic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDM43pAzXkKe97pmZXJ_HEX68fQMQc0J_hRmmzxOmWDz_BPjv-rR5rDYXPWqfKdwNHKs&usqp=CAU"
-      />
-      <Card
-        title="Rabin"
-        dec="asdfadsf dsaf aaa a d d d"
-        pic="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"
-      />
-    </div>
+    <main>
+      <Navbar setIsOpen={setIsOpen} />
+      <Sidebar isOpen={isOpen} />
+      <section className="py-10 px-[5%]">
+        <ProductList />
+      </section>
+      <Footer />
+    </main>
   );
 };
 export default App;
