@@ -31,18 +31,24 @@ const ProductList = () => {
     },
   ]);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-      {Array.isArray(list) &&
-        list.map((item, index) => {
-          return (
-            <Card
-              key={index}
-              dec={item?.dec}
-              pic={item?.image}
-              title={item?.title}
-            />
-          );
-        })}
+    <div className="space-y-10">
+      <div className=" w-fit mx-auto">
+        <h1 className="text-2xl font-semibold text-red-500">Product List</h1>
+        <div className="h-1 w-full bg-red-500"></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {Array.isArray(list) &&
+          list.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                dec={item?.dec}
+                pic={item?.image}
+                title={item?.title}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };
