@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../common/Card";
 
 const ProductList = () => {
@@ -30,11 +30,32 @@ const ProductList = () => {
       id: 1,
     },
   ]);
+  // useEffect(() => {
+  //   alert("hello");
+  // }, [list]);
   return (
     <div className="space-y-10">
-      <div className=" w-fit mx-auto">
-        <h1 className="text-2xl font-semibold text-red-500">Product List</h1>
-        <div className="h-1 w-full bg-red-500"></div>
+      <div className="flex items-center justify-between">
+        <div className=" w-fit mx-auto">
+          <h1 className="text-2xl font-semibold text-red-500">Product List</h1>
+          <div className="h-1 w-full bg-red-500"></div>
+        </div>
+        <button
+          onClick={() => {
+            setList((pre) => {
+              return [
+                ...pre,
+                {
+                  title: "Suraj",
+                  dec: "this is Suraj",
+                  id: 1,
+                },
+              ];
+            });
+          }}
+        >
+          add
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {Array.isArray(list) &&

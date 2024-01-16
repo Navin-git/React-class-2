@@ -1,4 +1,5 @@
 import React from "react";
+import { navList } from "./Navbar";
 
 const Sidebar = ({ isOpen }) => {
   return (
@@ -8,11 +9,13 @@ const Sidebar = ({ isOpen }) => {
       }`}
     >
       <ul className="flex flex-col justify-center h-full items-center gap-4 text-gray-700 font-medium">
-        <li className="cursor-pointer">home</li>
-        <li className="cursor-pointer">work</li>
-        <li className="cursor-pointer">project</li>
-        <li className="cursor-pointer">about</li>
-        <li className="cursor-pointer">contact</li>
+        {navList.map((item, index) => {
+          return (
+            <li key={index} className="cursor-pointer">
+              {item?.title}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

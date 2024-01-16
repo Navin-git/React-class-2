@@ -1,28 +1,27 @@
 import React from "react";
-
+export const navList = [
+  {
+    title: "home",
+    path: "/home",
+  },
+  {
+    title: "work",
+    path: "/work",
+  },
+  {
+    title: "projects",
+    path: "/projects",
+  },
+  {
+    title: "about",
+    path: "/about",
+  },
+  {
+    title: "contact",
+    path: "/contact",
+  },
+];
 const Navbar = ({ setIsOpen }) => {
-  const navList = [
-    {
-      title: "home",
-      path: "/home",
-    },
-    {
-      title: "work",
-      path: "/work",
-    },
-    {
-      title: "projects",
-      path: "/projects",
-    },
-    {
-      title: "about",
-      path: "/about",
-    },
-    {
-      title: "contact",
-      path: "/contact",
-    },
-  ];
   return (
     <nav className="bg-orange-100 sticky top-0 py-4 px-[5%] flex items-center gap-4 justify-between">
       <img
