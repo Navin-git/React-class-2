@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../common/Card";
+import Title from "../common/Title";
 
 const ProductList = () => {
   const [list, setList] = useState([
@@ -36,10 +37,7 @@ const ProductList = () => {
   return (
     <div className="space-y-10">
       <div className="flex items-center justify-between">
-        <div className=" w-fit mx-auto">
-          <h1 className="text-2xl font-semibold text-red-500">Product List</h1>
-          <div className="h-1 w-full bg-red-500"></div>
-        </div>
+        <Title title={"Product List"} />
         <button
           onClick={() => {
             setList((pre) => {
