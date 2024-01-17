@@ -5,7 +5,7 @@ const Button = ({ title, onclick, type, className = "" }) => {
     <button
       type={type}
       onClick={() => {
-        onclick();
+        onclick && onclick();
       }}
       className={`p-2 bg-blue-500 rounded-md font-medium text-white ${className}`}
     >

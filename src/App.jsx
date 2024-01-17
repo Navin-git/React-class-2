@@ -9,9 +9,9 @@ import Addproduct from "./components/add-product/Addproduct";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  console.log(email, name);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // console.log(email, name);
   return (
     <main>
       <Navbar setIsOpen={setIsOpen} />
@@ -19,9 +19,9 @@ const App = () => {
       <section className="py-10 px-[5%]">
         <ProductList />
         {/* <Counter /> */}
-        {/* <Addproduct /> */}
+        <Addproduct />
 
-        <div className="productInput">
+        {/* <div className="productInput">
           <label htmlFor="name">name</label>
           <input
             type="text"
@@ -42,7 +42,7 @@ const App = () => {
               setEmail(e?.target?.value);
             }}
           />
-        </div>
+        </div> */}
       </section>
       <Footer />
     </main>
