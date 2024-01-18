@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../common/Title";
 import Button from "../common/Button";
 
@@ -11,9 +11,35 @@ const Addproduct = () => {
     ["Re-order"]: "",
     Qty: "",
   });
+  const [error, setError] = useState({});
+  const [isValidate, setIsValidate] = useState(false);
+
+  const validation = (value) => {
+    let newErr = {};
+    if (!value.name) {
+      newErr = { ...newErr, name: "No name" };
+    }
+    if (!value.Category) {
+      newErr = { ...newErr, Category: "No Category" };
+    }
+    if (!value.rate) {
+      newErr = { ...newErr, rate: "No rate" };
+    } else if (value.rate < 100) {
+      newErr = {
+        ...newErr,
+        rate: "Rate must be atleast 100",
+      };
+    }
+    if (!value.Qty) {
+      newErr = { ...newErr, Qty: "No Qty" };
+    }
+    return newErr;
+  };
+
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(inputData);
+    setError(validation(inputData));
+    setIsValidate(true);
   };
 
   const handleChange = (e) => {
@@ -26,6 +52,17 @@ const Addproduct = () => {
       };
     });
   };
+
+  const postData = () => {
+    console.log("okay", inputData);
+  };
+
+  useEffect(() => {
+    if (Object.keys(error).length === 0 && isValidate) {
+      postData();
+    }
+  }, [error, isValidate]);
+
   return (
     <form onSubmit={handelSubmit} className="mt-[40px]">
       <Title title={"Add Product"} />
@@ -39,6 +76,7 @@ const Addproduct = () => {
             name="name"
             id="name"
           />
+          <p className="text-sm text-red-500">{error?.name}</p>
         </div>
         <div className="productInput">
           <label htmlFor="Category">Category</label>
@@ -49,11 +87,12 @@ const Addproduct = () => {
             name="Category"
             id="Category"
           />
+          <p className="text-sm text-red-500">{error?.Category}</p>
         </div>
         <div className="productInput col-span-2">
           <label htmlFor="Exp">Exp Date</label>
           <input
-            type="text"
+            type="date"
             onChange={handleChange}
             value={inputData.exp}
             name="exp"
@@ -63,17 +102,18 @@ const Addproduct = () => {
         <div className="productInput col-span-2">
           <label htmlFor="Rate">Rate</label>
           <input
-            type="text"
+            type="number"
             onChange={handleChange}
             value={inputData.rate}
             name="rate"
             id="Rate"
           />
+          <p className="text-sm text-red-500">{error?.rate}</p>
         </div>
         <div className="productInput">
           <label htmlFor="Re-order">Re-order Level</label>
           <input
-            type="text"
+            type="number"
             onChange={handleChange}
             value={inputData["Re-order"]}
             name="Re-order"
@@ -83,12 +123,13 @@ const Addproduct = () => {
         <div className="productInput">
           <label htmlFor="Qty">Qty</label>
           <input
-            type="text"
+            type="number"
             onChange={handleChange}
             value={inputData.Qty}
             name="Qty"
             id="Qty"
           />
+          <p className="text-sm text-red-500">{error?.Qty}</p>
         </div>
         <Button title={"Submit"} type="submit" className="col-span-2" />
       </div>
