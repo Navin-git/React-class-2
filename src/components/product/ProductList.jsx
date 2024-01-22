@@ -149,7 +149,7 @@ const ProductList = () => {
           <tbody>
             {mapData?.map((item, index) => {
               return (
-                <tr key={item.id}>
+                <tr className="even:bg-slate-200" key={item.id}>
                   <td>{index + 1}</td>
                   <td>{item?.title}</td>
                   <td>{item?.qty}</td>
