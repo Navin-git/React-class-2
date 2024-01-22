@@ -40,6 +40,7 @@ const ProductList = () => {
     },
   ]);
   const [show, setShow] = useState("");
+  const [view, setView] = useState("grid");
 
   // const [totalqty, setTotalQty] = useState(0);
   // useEffect(() => {
@@ -103,22 +104,64 @@ const ProductList = () => {
           >
             All
           </button>
+          <button
+            onClick={() => {
+              setView("grid");
+            }}
+          >
+            Grid
+          </button>
+          <button
+            onClick={() => {
+              setView("table");
+            }}
+          >
+            Table
+          </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {mapData.map((item, index) => {
-          return (
-            <Card
-              key={index}
-              dec={item?.dec}
-              pic={item?.image}
-              title={item?.title}
-              rate={item?.price}
-              qty={item?.qty}
-            />
-          );
-        })}
-      </div>
+      {view === "grid" ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {mapData.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                dec={item?.dec}
+                pic={item?.image}
+                title={item?.title}
+                rate={item?.price}
+                qty={item?.qty}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>sn</th>
+              <th>name</th>
+              <th>qty</th>
+              <th>price</th>
+              <th>amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mapData?.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
+                  <td>{item?.title}</td>
+                  <td>{item?.qty}</td>
+                  <td>{item?.price}</td>
+                  <td>{item?.qty * item?.price}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <table></table>
+        </table>
+      )}
       <div className="flex flex-col items-end">
         <p>total qty : {totalqty}</p>
         <p>total Amount : {totalAmount}</p>
