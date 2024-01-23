@@ -1,7 +1,8 @@
 import React from "react";
 import { navList } from "./Navbar";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
     <div
       className={`fixed bg-white h-screen top-0 overflow-hidden duration-200 left-0 z-10 ${
@@ -12,7 +13,15 @@ const Sidebar = ({ isOpen }) => {
         {navList.map((item, index) => {
           return (
             <li key={index} className="cursor-pointer">
-              {item?.title}
+              <Link
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+                to={item?.path}
+              >
+                {" "}
+                {item?.title}
+              </Link>
             </li>
           );
         })}

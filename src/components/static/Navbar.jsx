@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export const navList = [
   {
     title: "home",
-    path: "/home",
+    path: "/",
   },
   {
     title: "work",
     path: "/work",
   },
   {
-    title: "projects",
-    path: "/projects",
+    title: "project",
+    path: "/project",
   },
   {
     title: "about",
@@ -34,7 +35,7 @@ const Navbar = ({ setIsOpen }) => {
           navList.map((item, index) => {
             return (
               <li key={index} className="cursor-pointer text-red-500">
-                <a href={item?.path}>{item?.title}</a>
+                <Link to={item?.path}>{item?.title}</Link>
               </li>
             );
           })}

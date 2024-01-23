@@ -6,12 +6,8 @@ import Addproduct from "../components/add-product/Addproduct";
 import Footer from "../components/static/Footer";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <>
-      <Navbar setIsOpen={setIsOpen} />
-      <Sidebar isOpen={isOpen} />
       <section className="py-10 px-[5%]">
         <ProductList />
         {/* <Counter /> */}
@@ -40,7 +36,6 @@ const Home = () => {
       />
     </div> */}
       </section>
-      <Footer />
     </>
   );
 };
