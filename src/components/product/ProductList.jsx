@@ -2,43 +2,45 @@ import React, { useEffect, useMemo, useState } from "react";
 import Card from "../common/Card";
 import Title from "../common/Title";
 
+export const plist = [
+  {
+    title: "nabin",
+    dec: "this is nabin",
+    id: 1,
+    price: 200,
+    qty: "4",
+    image:
+      "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+  },
+  {
+    title: "jubin",
+    dec: "this is jubin",
+    id: 2,
+    price: 400,
+    qty: 8,
+    image:
+      "https://slp-statics.astockcdn.net/static_assets/staging/24winter/home/curated-collections/card-2.jpg?width=580",
+  },
+  {
+    title: "Saroj",
+    dec: "this is saroj",
+    id: 3,
+    price: 100,
+    qty: 3,
+    image:
+      "https://media.istockphoto.com/id/1225173869/photo/house-boat-anchored-in-lake-with-jungle-background-backwaters-kerala-india.jpg?s=612x612&w=0&k=20&c=uo-bsRQjhlT9AgeWBs_pkSvHQwStCelMC75EUpzwjHU=",
+  },
+  {
+    title: "Suraj",
+    dec: "this is Suraj",
+    id: 4,
+    price: 300,
+    qty: 400,
+  },
+];
+
 const ProductList = () => {
-  const [list, setList] = useState([
-    {
-      title: "nabin",
-      dec: "this is nabin",
-      id: 1,
-      price: 200,
-      qty: "4",
-      image:
-        "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    },
-    {
-      title: "jubin",
-      dec: "this is jubin",
-      id: 2,
-      price: 400,
-      qty: 8,
-      image:
-        "https://slp-statics.astockcdn.net/static_assets/staging/24winter/home/curated-collections/card-2.jpg?width=580",
-    },
-    {
-      title: "Saroj",
-      dec: "this is saroj",
-      id: 3,
-      price: 100,
-      qty: 3,
-      image:
-        "https://media.istockphoto.com/id/1225173869/photo/house-boat-anchored-in-lake-with-jungle-background-backwaters-kerala-india.jpg?s=612x612&w=0&k=20&c=uo-bsRQjhlT9AgeWBs_pkSvHQwStCelMC75EUpzwjHU=",
-    },
-    {
-      title: "Suraj",
-      dec: "this is Suraj",
-      id: 4,
-      price: 300,
-      qty: 400,
-    },
-  ]);
+  const [list, setList] = useState(plist);
   const [show, setShow] = useState("");
   const [view, setView] = useState("grid");
 
@@ -131,6 +133,7 @@ const ProductList = () => {
                 title={item?.title}
                 rate={item?.price}
                 qty={item?.qty}
+                id={item?.id}
               />
             );
           })}

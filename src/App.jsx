@@ -3,9 +3,11 @@ import "./App.css";
 import React from "react";
 import Home from "./page/Home";
 import Layout from "./components/static/Layout";
-import Project from "./page/Project";
+import Project from "./page/project/Project";
 import Contact from "./page/Contact";
 import About from "./page/About";
+import Addproduct from "./components/add-product/Addproduct";
+import ProjectDetails from "./page/project/ProjectDetails";
 
 const App = () => {
   const routes = useRoutes([
@@ -19,7 +21,25 @@ const App = () => {
         },
         {
           path: "project",
-          element: <Project />,
+          element: (
+            <>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              index: true,
+              element: <Project />,
+            },
+            {
+              path: "add",
+              element: <Addproduct />,
+            },
+            {
+              path: ":slug",
+              element: <ProjectDetails />,
+            },
+          ],
         },
         {
           path: "contact",
@@ -31,7 +51,22 @@ const App = () => {
         },
         {
           path: "work",
-          element: <div>hello</div>,
+          element: (
+            <div>
+              work
+              <Outlet />
+            </div>
+          ),
+          children: [
+            {
+              index: true,
+              element: <div>hello</div>,
+            },
+            {
+              path: "add",
+              element: <div>add work</div>,
+            },
+          ],
         },
       ],
     },

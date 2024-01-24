@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Card = ({
   pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDM43pAzXkKe97pmZXJ_HEX68fQMQc0J_hRmmzxOmWDz_BPjv-rR5rDYXPWqfKdwNHKs&usqp=CAU",
   title = "",
   dec = "",
   rate,
   qty,
+  id,
 }) => {
   return (
-    <div className="card">
+    <Link to={`/project/${id}`} className="card">
       <img src={pic} alt="" className="h-[250px] w-full object-cover" />
       <div className="mt-2">
         <div className="flex gap-2 items-center justify-between">
@@ -17,7 +20,7 @@ const Card = ({
         </div>
         <p className="text-gray-600">{dec}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
