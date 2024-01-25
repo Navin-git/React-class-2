@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHref } from "react-router-dom";
 export const navList = [
   {
     title: "home",
@@ -23,6 +23,7 @@ export const navList = [
   },
 ];
 const Navbar = ({ setIsOpen }) => {
+  const pathname = useHref();
   return (
     <nav className="bg-orange-100 sticky top-0 py-4 px-[5%] flex items-center gap-4 justify-between">
       <img
@@ -34,8 +35,15 @@ const Navbar = ({ setIsOpen }) => {
         {Array.isArray(navList) &&
           navList.map((item, index) => {
             return (
-              <li key={index} className="cursor-pointer text-red-500">
-                <Link to={item?.path}>{item?.title}</Link>
+              <li key={index} className="cursor-pointer">
+                <Link
+                  className={`${
+                    pathname === item?.path ? "text-red-700" : "text-red-500"
+                  }`}
+                  to={item?.path}
+                >
+                  {item?.title}
+                </Link>
               </li>
             );
           })}

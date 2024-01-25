@@ -1,77 +1,12 @@
-import { Outlet, useRoutes } from "react-router-dom";
 import "./App.css";
-import React from "react";
-import Home from "./page/Home";
-import Layout from "./components/static/Layout";
-import Project from "./page/project/Project";
-import Contact from "./page/Contact";
-import About from "./page/About";
-import Addproduct from "./components/add-product/Addproduct";
-import ProjectDetails from "./page/project/ProjectDetails";
+import Routes from "./components/routs";
 
 const App = () => {
-  const routes = useRoutes([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "project",
-          element: (
-            <>
-              <Outlet />
-            </>
-          ),
-          children: [
-            {
-              index: true,
-              element: <Project />,
-            },
-            {
-              path: "add",
-              element: <Addproduct />,
-            },
-            {
-              path: ":slug",
-              element: <ProjectDetails />,
-            },
-          ],
-        },
-        {
-          path: "contact",
-          element: <Contact />,
-        },
-        {
-          path: "about",
-          element: <About />,
-        },
-        {
-          path: "work",
-          element: (
-            <div>
-              work
-              <Outlet />
-            </div>
-          ),
-          children: [
-            {
-              index: true,
-              element: <div>hello</div>,
-            },
-            {
-              path: "add",
-              element: <div>add work</div>,
-            },
-          ],
-        },
-      ],
-    },
-  ]);
-  return routes;
+  return (
+    <div>
+      <Routes />
+    </div>
+  );
 };
 
 export default App;

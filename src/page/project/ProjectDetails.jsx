@@ -3,16 +3,16 @@ import { useHref, useNavigate, useParams } from "react-router-dom";
 import { plist } from "../../components/product/ProductList";
 
 const ProjectDetails = () => {
-  const { slug } = useParams();
+  const { id } = useParams();
   const [details, setDetails] = useState(null);
   const pathname = useHref();
   const navigate = useNavigate();
   console.log(pathname);
   useEffect(() => {
-    if (slug) {
-      setDetails(plist.find((item) => item?.id.toString() === slug));
+    if (id) {
+      setDetails(plist.find((item) => item?.id.toString() === id));
     }
-  }, [slug]);
+  }, [id]);
   return details === null || details ? (
     <div>
       <img
@@ -32,10 +32,10 @@ const ProjectDetails = () => {
     </div>
   ) : (
     <div>
-      no data found go{" "}
+      no data found go
       <button
         onClick={() => {
-          navigate("/");
+          navigate("/project");
         }}
       >
         home
