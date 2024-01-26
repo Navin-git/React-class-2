@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHref } from "react-router-dom";
+import { SearchIcon } from "../../assets/icons";
 export const navList = [
   {
     title: "home",
@@ -31,6 +32,14 @@ const Navbar = ({ setIsOpen }) => {
         alt=""
         className="h-10"
       />
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="search"
+          className="py-1 px-8 rounded-full outline-none bg-white bg-opacity-70 text-lg text-red-500"
+        />
+        <SearchIcon className="absolute top-2 right-2 h-5 w-5 text-red-500" />
+      </div>
       <ul className="sm:flex hidden justify-end items-center gap-4 text-gray-700 font-medium">
         {Array.isArray(navList) &&
           navList.map((item, index) => {
