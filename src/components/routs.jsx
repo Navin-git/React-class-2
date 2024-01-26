@@ -7,6 +7,8 @@ import Addproduct from "./add-product/Addproduct";
 import ProjectDetails from "../page/project/ProjectDetails";
 import Contact from "../page/Contact";
 import About from "../page/About";
+import PostList from "./Post";
+import PostDetails from "../page/PostDetails";
 
 const Routes = () => {
   const routes = useRoutes([
@@ -37,6 +39,24 @@ const Routes = () => {
             {
               path: ":id",
               element: <ProjectDetails />,
+            },
+          ],
+        },
+        {
+          path: "post",
+          element: (
+            <>
+              <Outlet />
+            </>
+          ),
+          children: [
+            {
+              index: true,
+              element: <PostList />,
+            },
+            {
+              path: ":id",
+              element: <PostDetails />,
             },
           ],
         },

@@ -4,12 +4,14 @@ import Sidebar from "../components/static/Sidebar";
 import ProductList from "../components/product/ProductList";
 import Addproduct from "../components/add-product/Addproduct";
 import Footer from "../components/static/Footer";
+import PostList from "../components/Post";
 
 const Home = () => {
   return (
     <>
       <section className="py-10 px-[5%]">
-        <ProductList />
+        {/* <ProductList /> */}
+        <PostList />
         {/* <Counter /> */}
         <Addproduct />
 
