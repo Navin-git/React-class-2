@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/common/Button";
 import Title from "../components/common/Title";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [inputField, setInputField] = useState({
     name: "",
     password: "",
   });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage?.getItem("isLogin") && navigate("/");
+  }, []);
   const [error, setError] = useState({
     name: "",
     password: "",
@@ -52,7 +58,9 @@ const Login = () => {
 
   useEffect(() => {
     if (Object.keys(error).length === 0 && isValidate) {
-      console.log("okay", inputField);
+      localStorage?.setItem("isLogin", true);
+      localStorage?.setItem("userName", inputField?.name);
+      window.location.pathname = "/";
     }
   }, [error, isValidate]);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./static/Layout";
 import Home from "../page/Home";
-import { Outlet, useRoutes } from "react-router-dom";
+import { Outlet, useNavigate, useRoutes } from "react-router-dom";
 import Project from "../page/project/Project";
 import Addproduct from "./add-product/Addproduct";
 import ProjectDetails from "../page/project/ProjectDetails";
@@ -9,9 +9,14 @@ import Contact from "../page/Contact";
 import About from "../page/About";
 import PostList from "./Post";
 import PostDetails from "../page/PostDetails";
+import Login from "../page/Login";
 
 const Routes = () => {
   const routes = useRoutes([
+    {
+      path: "/login",
+      element: <Login />,
+    },
     {
       path: "/",
       element: <Layout />,

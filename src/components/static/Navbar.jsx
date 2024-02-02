@@ -56,6 +56,7 @@ const Navbar = ({ setIsOpen }) => {
               </li>
             );
           })}
+        <li className="">{localStorage?.getItem("userName")}</li>
       </ul>
       <button
         className="block sm:hidden"
