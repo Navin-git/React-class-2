@@ -21,11 +21,11 @@ const PostList = () => {
     getList();
   }, []);
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 dark:bg-slate-700">
       <div className="flex items-center justify-between">
         <Title title={"Post"} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 dark:bg-gray-400 gap-3">
         {Array.isArray(list) &&
           list.map((item, index) => {
             return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useHref } from "react-router-dom";
 import { SearchIcon } from "../../assets/icons";
+import Toggle from "../common/Toggle";
 export const navList = [
   {
     title: "home",
@@ -23,7 +24,7 @@ export const navList = [
     path: "/contact",
   },
 ];
-const Navbar = ({ setIsOpen }) => {
+const Navbar = ({ setIsOpen, setDark }) => {
   const pathname = useHref();
   return (
     <nav className="bg-orange-100 sticky top-0 py-4 px-[5%] flex items-center gap-4 justify-between">
@@ -57,6 +58,9 @@ const Navbar = ({ setIsOpen }) => {
             );
           })}
         <li className="">{localStorage?.getItem("userName")}</li>
+        <li>
+          <Toggle setDark={setDark} />
+        </li>
       </ul>
       <button
         className="block sm:hidden"

@@ -17,7 +17,7 @@ const PostDetails = () => {
     getPost();
   }, [id]);
   return (
-    <div className="card">
+    <div className="card dark:!bg-slate-300">
       <img
         src={
           "https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/14/yvA5SpUH-IMG-Worlds.jpg"

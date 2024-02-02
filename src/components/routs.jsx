@@ -11,7 +11,7 @@ import PostList from "./Post";
 import PostDetails from "../page/PostDetails";
 import Login from "../page/Login";
 
-const Routes = () => {
+const Routes = ({ setDark }) => {
   const routes = useRoutes([
     {
       path: "/login",
@@ -19,7 +19,7 @@ const Routes = () => {
     },
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout setDark={setDark} />,
       children: [
         {
           index: true,
